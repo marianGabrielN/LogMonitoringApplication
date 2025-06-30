@@ -24,4 +24,13 @@ internal class LogEntry(TimeSpan timestamp, string description, LogEntryType typ
     /// The Process ID (PID) associated with the job.
     /// </summary>
     public int ProcessId { get; } = processId;
+
+    /// <summary>
+    /// Provides a string representation of the log entry for debugging/display.
+    /// </summary>
+    /// <returns>A formatted string.</returns>
+    public override string ToString()
+    {
+        return $"[{Timestamp:hh\\:mm\\:ss}] PID: {ProcessId}, Type: {Type}\t, Desc: {Description}";
+    }
 }
