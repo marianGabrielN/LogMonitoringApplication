@@ -1,4 +1,6 @@
-﻿namespace LogMonitoringApplication.Models;
+﻿using LogMonitoringApplication.Enums;
+
+namespace LogMonitoringApplication.Models;
 
 /// <summary>
 /// Represents a single entry parsed from the log file.
@@ -13,7 +15,7 @@ internal class LogEntry(TimeSpan timestamp, string description, LogEntryType typ
     /// <summary>
     /// The description of the job or task.
     /// </summary>
-    public string Description { get; } = description ?? throw new ArgumentNullException(nameof(description));
+    public string Description { get; } = description ?? string.Empty;
 
     /// <summary>
     /// The type of the log entry (START or END).

@@ -1,4 +1,5 @@
-﻿using LogMonitoringApplication.Models;
+﻿using LogMonitoringApplication.Enums;
+using LogMonitoringApplication.Models;
 using LogMonitoringApplication.Services.Interfaces;
 
 namespace LogMonitoringApplication.Services.Implementation;

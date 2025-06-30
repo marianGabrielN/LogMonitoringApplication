@@ -1,4 +1,4 @@
-﻿namespace LogMonitoringApplication.Models;
+﻿namespace LogMonitoringApplication.Enums;
 
 /// <summary>
 /// Represents the type of a log entry, indicating whether a process started or ended.
