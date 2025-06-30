@@ -4,6 +4,9 @@ using LogMonitoringApplication.Services.Interfaces;
 
 namespace LogMonitoringApplication.Services.Implementation;
 
+/// <summary>
+/// Implements the ILogParser interface to parse CSV log files.
+/// </summary>
 internal class LogParser : ILogParser
 {
     public IEnumerable<LogEntry> Parse(string logFilePath)

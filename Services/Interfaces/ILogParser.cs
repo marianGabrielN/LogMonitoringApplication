@@ -2,6 +2,9 @@
 
 namespace LogMonitoringApplication.Services.Interfaces;
 
+/// <summary>
+/// Defines the contract for parsing a log file into a collection of LogEntry objects.
+/// </summary>
 internal interface ILogParser
 {
     /// <summary>

@@ -16,11 +16,6 @@ internal enum JobStatus
     Completed,
 
     /// <summary>
-    /// The job started but did not have a corresponding END entry.
-    /// </summary>
-    Incomplete,
-
-    /// <summary>
     /// The job completed, but took longer than the warning threshold.
     /// </summary>
     Warning,
@@ -28,10 +23,5 @@ internal enum JobStatus
     /// <summary>
     /// The job completed, but took longer than the error threshold.
     /// </summary>
-    Error,
-
-    /// <summary>
-    /// An 'END' log entry was found without a preceding 'START' for the same PID.
-    /// </summary>
-    OrphanedEnd
+    Error
 }
