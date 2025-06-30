@@ -1,6 +1,5 @@
 ﻿using LogMonitoringApplication.Models;
 using LogMonitoringApplication.Services.Implementation;
-using LogMonitoringApplication.Services.Interfaces;
 
 Console.WriteLine("Log Monitoring Application starting...");
 
@@ -10,20 +9,24 @@ string logFilePath = Path.Combine(solutionRootDirectory, "Logs", "logs.log");
 
 Console.WriteLine($"Attempting to parse log file at: '{logFilePath}'");
 
-var parser = new LogParser();
+var logParser = new LogParser();
+var jobProcessor = new JobProcessor();
 
 try
 {
-    // Parse the log file
-    IEnumerable<LogEntry> entries = parser.Parse(logFilePath);
+    // Task 1: Parse the log file
+    IEnumerable<LogEntry> entries = logParser.Parse(logFilePath);
 
-    Console.WriteLine("\n--- Successfully Parsed Log Entries ---");
-    foreach (var entry in entries)
+    // Task 2: Identify and track jobs
+    IReadOnlyList<Job> jobs = jobProcessor.ProcessLogEntries(entries);
+
+    Console.WriteLine("\n--- Processed Jobs ---");
+    foreach (var job in jobs)
     {
-        Console.WriteLine(entry.ToString());
+        Console.WriteLine(job);
     }
-    Console.WriteLine("---------------------------------------");
-    Console.WriteLine($"Total parsed entries: {entries.Count()}");
+    Console.WriteLine("----------------------");
+    Console.WriteLine($"Total processed jobs: {jobs.Count}");
 }
 catch (Exception ex)
 {
